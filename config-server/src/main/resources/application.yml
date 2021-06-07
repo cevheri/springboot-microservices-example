@@ -1,0 +1,12 @@
+server:
+  port: 9296
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/cevheri/microservices-config-server
+          clone-on-start: true
