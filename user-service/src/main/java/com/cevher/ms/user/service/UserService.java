@@ -31,7 +31,7 @@ public class UserService {
         ResponseTempVM vm = new ResponseTempVM();
         User user = userRepository.findById(userId).orElse(new User());
 
-        // TODO : tot for production.
+        // TODO : not for production, you should use config and common class or method.
         // TODO : We can use Message Broker for example Apache Kafka
         DepartmentVM department = restTemplate.getForObject(
                 //"http://localhost:9001/departments/" + user.getDepartmentId()
