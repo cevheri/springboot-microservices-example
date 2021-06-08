@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 @Slf4j
@@ -20,7 +22,11 @@ public class UserController {
         log.info("saveUser by UserController");
         return userService.saveUser(user);
     }
-
+    @GetMapping("/")
+    public List<User> findAllUser() {
+        log.info("findAllUser by UserController");
+        return userService.findAllUser();
+    }
     @GetMapping("/{id}")
     public ResponseTempVM getUserWithDepartment(
             @PathVariable("id") Long userId) {

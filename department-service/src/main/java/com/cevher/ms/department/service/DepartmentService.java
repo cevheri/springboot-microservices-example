@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class DepartmentService {
@@ -21,5 +23,10 @@ public class DepartmentService {
     public Department findDepartmentById(Long departmentId) {
         log.info("findDepartment method of DepartmentService");
         return departmentRepository.findById(departmentId).orElse(new Department());
+    }
+
+    public List<Department> findAllDepartment() {
+        log.info("findAllDepartment method of DepartmentService");
+        return departmentRepository.findAll();
     }
 }

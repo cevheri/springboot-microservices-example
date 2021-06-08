@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class UserService {
@@ -39,5 +41,10 @@ public class UserService {
         vm.setUser(user);
         vm.setDepartment(department);
         return vm;
+    }
+
+    public List<User> findAllUser() {
+        log.info("getUserWithDepartment method of UserService");
+        return userRepository.findAll();
     }
 }
