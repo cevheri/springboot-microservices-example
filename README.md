@@ -17,6 +17,7 @@ Spring Boot version: 2.3.11.RELEASE
   - spring-cloud-starter-config
   - 
 ### Config Server
+- Spring Boot version: 2.5.0
 - Github repository -> application.yml 
 - Dependencies:
   - spring-cloud-config-server
@@ -31,6 +32,7 @@ Spring Boot version: 2.3.11.RELEASE
   
 ### Other Microservices
 - Spring Boot version: 2.5.0
+- User, Department, Task Services
 - Dependencies:
   - spring-cloud-starter-config
   - spring-cloud-starter-netflix-eureka-client
