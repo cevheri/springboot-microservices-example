@@ -9,7 +9,8 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @EnableEurekaClient
 @EnableHystrixDashboard
 public class HystrixDashboardApplication {
-
+	// We used @EnableEurekaServer and @EnableHystrixDashboard
+	// See application.yml and bootstrap.yml
 	public static void main(String[] args) {
 		SpringApplication.run(HystrixDashboardApplication.class, args);
 	}

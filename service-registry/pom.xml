@@ -12,9 +12,9 @@
 
 	<groupId>com.cevher.ms</groupId>
 	<artifactId>service-registry</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>service-registry</name>
-	<description>User Service</description>
+	<description>Service Registry Application</description>
 
 	<properties>
 		<java.version>11</java.version>

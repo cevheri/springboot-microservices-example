@@ -15,6 +15,10 @@ public class UserServiceApplication {
 		SpringApplication.run(UserServiceApplication.class, args);
 	}
 
+	/**
+	 * We use connect to other microservices
+	 * @return Rest API object
+	 */
 	@Bean
 	@LoadBalanced
 	RestTemplate restTemplate(){

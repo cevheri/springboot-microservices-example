@@ -44,9 +44,15 @@ hystrix:
             timeoutInMiliseconds: 4000
 
 management:
+  metrics:
+    tags:
+      application: MonitoringMicroservices
   endpoints:
+    health:
+      show-detail: always
     web:
       exposure:
-        include: hystrix.stream
+        include: hystrix.stream, prometheus
+
 
 

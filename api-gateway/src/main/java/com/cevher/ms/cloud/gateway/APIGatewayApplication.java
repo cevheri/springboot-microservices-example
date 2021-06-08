@@ -9,7 +9,8 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @EnableEurekaClient
 @EnableHystrix
 public class APIGatewayApplication {
-
+	// We used @EnableEurekaServer and @EnableHystrix
+	// See application.yml and bootstrap.yml
 	public static void main(String[] args) {
 		SpringApplication.run(APIGatewayApplication.class, args);
 	}
