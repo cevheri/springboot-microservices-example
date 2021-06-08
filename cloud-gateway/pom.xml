@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cevher.ms</groupId>
-	<artifactId>cloud-gateway</artifactId>
+	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cloud-gateway</name>
+	<name>api-gateway</name>
 	<description>API Gateway Application</description>
 	<properties>
 		<java.version>11</java.version>
