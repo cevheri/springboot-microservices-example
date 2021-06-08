@@ -26,7 +26,15 @@ spring:
               args:
                 name: department-service
                 fallbackuri: forward:/departmentServiceFallBack
-
+        - id: task-service
+          uri: lb://task-service
+          predicates:
+            - Path=/tasks/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: task-service
+                fallbackuri: forward:/taskServiceFallBack
 hystrix:
   command:
     fallbackcmd:

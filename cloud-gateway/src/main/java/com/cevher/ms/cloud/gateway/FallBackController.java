@@ -15,4 +15,8 @@ public class FallBackController {
     public String departmentServiceFallBack(){
         return "FallBack Controller!.. Department Service is taking longer then Expected.";
     }
+    @GetMapping("/taskServiceFallBack")
+    public String taskServiceFallBack(){
+        return "FallBack Controller!.. Task Service is taking longer then Expected.";
+    }
 }
