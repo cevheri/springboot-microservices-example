@@ -8,15 +8,15 @@ public class FallBackController {
 
     @GetMapping("/userServiceFallBack")
     public String userServiceFallBack(){
-        return "FallBack Controller!.. User Service is taking longer then Expected.";
+        return "FallBack User Controller!.. User Service is taking longer then Expected.";
     }
 
     @GetMapping("/departmentServiceFallBack")
     public String departmentServiceFallBack(){
-        return "FallBack Controller!.. Department Service is taking longer then Expected.";
+        return "FallBack Department Controller!.. Department Service is taking longer then Expected.";
     }
     @GetMapping("/taskServiceFallBack")
     public String taskServiceFallBack(){
-        return "FallBack Controller!.. Task Service is taking longer then Expected.";
+        return "FallBack Task Controller!.. Task Service is taking longer then Expected.";
     }
 }
