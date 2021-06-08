@@ -19,17 +19,17 @@ public class UserService {
     private RestTemplate restTemplate;
 
     public User saveUser(User user) {
-        log.info("Inside saveUser of UserService");
+        log.info("saveUser method of UserService");
         return userRepository.save(user);
     }
 
     public ResponseTempVM getUserWithDepartment(Long userId) {
-        log.info("Inside getUser Department of UserService");
+        log.info("getUserWithDepartment method of UserService");
 
         ResponseTempVM vm = new ResponseTempVM();
-        User user = userRepository.findByUserId(userId);
+        User user = userRepository.findById(userId).orElse(new User());
 
-        // TODO : not production. we should use config
+        // TODO : tot for production.
         // TODO : We can use Message Broker for example Apache Kafka
         DepartmentVM department = restTemplate.getForObject(
                 //"http://localhost:9001/departments/" + user.getDepartmentId()
