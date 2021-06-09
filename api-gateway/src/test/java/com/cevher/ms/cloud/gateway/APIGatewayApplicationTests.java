@@ -24,10 +24,10 @@ class APIGatewayApplicationTests {
 
     @Ignore("not yet ready , Please ignore.")
     @Test
-    void fallBackUser() throws Exception {
+    void fallBackPerson() throws Exception {
         assertThat(this.restTemplate
-                .getForObject("http://127.0.0.1:" + port + "/userServiceFallBack", String.class)
-        ).contains("FallBack User Controller");
+                .getForObject("http://127.0.0.1:" + port + "/personServiceFallBack", String.class)
+        ).contains("FallBack Person Controller");
     }
 
 }

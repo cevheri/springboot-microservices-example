@@ -1,7 +1,6 @@
-package com.cevher.ms.task.web.rest;
+package com.cevher.ms.person.vm;
 
-
-import com.cevher.ms.task.domain.Task;
+import com.cevher.ms.person.domain.Person;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,9 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResponseVM {
-    private Task task;
-    private PersonVM person;
+public class ResponseTempVM {
+    private Person person;
     private DepartmentVM department;
 }
-

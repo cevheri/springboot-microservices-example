@@ -1,4 +1,5 @@
-package com.cevher.ms.task.domain;
+package com.cevher.ms.person.domain;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,26 +9,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.Instant;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Task {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-    private String description;
-    private TaskState state;
-    private Instant startDate;
-    private Instant endDate;
-    private Long assignedPersonId;
-    private Long createdPersonId;
+    private String userName;
+    private String firstName;
+    private String lastName;
+    private String email;
     private Long departmentId;
-
-
 
 }

@@ -8,15 +8,15 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: user-service
-          uri: lb://user-service
+        - id: person-service
+          uri: lb://person-service
           predicates:
-            - Path=/users/**
+            - Path=/people/**
           filters:
             - name: CircuitBreaker
               args:
-                name: user-service
-                fallbackuri: forward:/userServiceFallBack
+                name: person-service
+                fallbackuri: forward:/personServiceFallBack
         - id: department-service
           uri: lb://department-service
           predicates:

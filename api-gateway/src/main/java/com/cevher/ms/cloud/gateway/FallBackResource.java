@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class FallBackResource {
 
     /**
-     * For User Microservices CircuitBreaker
+     * For Person Microservices CircuitBreaker
      * @return FallBack Message
      */
-    @GetMapping("/userServiceFallBack")
-    public String userServiceFallBack(){
-        return "FallBack User Controller!.. User Service is taking longer then Expected.";
+    @GetMapping("/personServiceFallBack")
+    public String personServiceFallBack(){
+        return "FallBack Person Controller!.. Person Service is taking longer then Expected.";
     }
 
     /**
