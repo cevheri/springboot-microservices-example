@@ -44,7 +44,7 @@ public class PersonService {
     }
 
     public List<Person> findAllPerson() {
-        log.info("getPersonWithDepartment method of PersonService");
+        log.info("findAllPerson method of PersonService");
         return personRepository.findAll();
     }
 }
