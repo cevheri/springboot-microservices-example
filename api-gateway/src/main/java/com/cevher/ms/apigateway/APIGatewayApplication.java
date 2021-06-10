@@ -1,4 +1,4 @@
-package com.cevher.ms.cloud.gateway;
+package com.cevher.ms.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

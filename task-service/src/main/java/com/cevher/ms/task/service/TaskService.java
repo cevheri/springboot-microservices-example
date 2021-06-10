@@ -47,7 +47,7 @@ public class TaskService {
 
         // TODO : not for production.
         // TODO : We can use Message Broker for example Apache Kafka
-        PersonVM user = restTemplate.getForObject(
+        PersonVM person = restTemplate.getForObject(
                 "http://person-service/people/" + task.get().getAssignedPersonId()
                 , PersonVM.class);
 

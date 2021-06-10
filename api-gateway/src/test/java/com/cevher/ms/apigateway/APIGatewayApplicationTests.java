@@ -1,4 +1,4 @@
-package com.cevher.ms.cloud.gateway;
+package com.cevher.ms.apigateway;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;

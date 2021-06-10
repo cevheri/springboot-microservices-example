@@ -31,4 +31,5 @@ public class DepartmentController {
         log.info("findDepartmentById method of DepartmentController");
         return departmentService.findDepartmentById(departmentId);
     }
+
 }

@@ -55,11 +55,12 @@ docker run -d -p 9411:9411 openzipkin/zipkin
  
 ---
 
-Health : http://localhost:9191/actuator/health
-Eureka : http://localhost:8761/
-Department GetMethod: http://localhost:9191/departments/1
-Hystrix: http://localhost:9295/hystrix
-http://localhost:9295/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A9191%2Factuator%2Fhystrix.stream
+Project Links: 
+- Health : http://localhost:9191/actuator/health
+- Eureka : http://localhost:8761/
+- Department GetMethod: http://localhost:9191/departments/1
+- Hystrix: http://localhost:9295/hystrix
+- http://localhost:9295/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A9191%2Factuator%2Fhystrix.stream
 
 
 

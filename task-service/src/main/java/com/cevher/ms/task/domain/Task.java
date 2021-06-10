@@ -28,6 +28,4 @@ public class Task {
     private Long createdPersonId;
     private Long departmentId;
 
-
-
 }
