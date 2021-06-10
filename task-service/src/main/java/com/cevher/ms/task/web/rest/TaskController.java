@@ -33,4 +33,15 @@ public class TaskController {
         log.info("findByTaskId method of TaskController");
         return taskService.findByTaskId(id);
     }
+
+    /**
+     * Get Task with all relationship information
+     * @param id task ID
+     * @return Return Task with all relationship ResponseVM
+     */
+    @GetMapping("/rel/{id}")
+    public ResponseVM findByTaskIdWithRelationShip(@PathVariable("id") Long id){
+        log.info("findByTaskId method of TaskController");
+        return taskService.findByTaskIdWithPersonAndDepartment(id);
+    }
 }

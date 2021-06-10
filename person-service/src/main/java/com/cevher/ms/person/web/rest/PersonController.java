@@ -22,12 +22,21 @@ public class PersonController {
         log.info("savePerson by PersonController");
         return personService.savePerson(person);
     }
+
     @GetMapping("/")
     public List<Person> findAllPerson() {
         log.info("findAllPerson by PersonController");
         return personService.findAllPerson();
     }
+
     @GetMapping("/{id}")
+    public Person getPersonById(
+            @PathVariable("id") Long personId) {
+        log.info("getPersonWithDepartment by PersonController");
+        return personService.getPersonById(personId);
+    }
+
+    @GetMapping("/rel/{id}")
     public ResponseTempVM getPersonWithDepartment(
             @PathVariable("id") Long personId) {
         log.info("getPersonWithDepartment by PersonController");

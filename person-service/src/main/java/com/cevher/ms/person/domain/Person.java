@@ -15,15 +15,14 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Person {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long parentId;
     private String userName;
     private String password;
     private String firstName;
     private String lastName;
     private String email;
     private Long departmentId;
-
 }

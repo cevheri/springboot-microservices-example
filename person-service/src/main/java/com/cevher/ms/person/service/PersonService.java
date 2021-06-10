@@ -47,4 +47,8 @@ public class PersonService {
         log.info("findAllPerson method of PersonService");
         return personRepository.findAll();
     }
+
+    public Person getPersonById(Long personId) {
+        return personRepository.findById(personId).orElse(new Person());
+    }
 }
