@@ -52,7 +52,7 @@ management:
       show-detail: always
     web:
       exposure:
-        include: hystrix.stream, prometheus
+        include: hystrix.stream #, prometheus
 
 
 
