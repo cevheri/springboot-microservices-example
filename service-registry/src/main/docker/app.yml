@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  service-registry:
+    image: service-registry
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - LOGGING_FILE_NAME=/tmp/microservices-sr.log
+    ports:
+      - 8761:8761

@@ -1,11 +1,8 @@
+#deprecated use app.yml
 FROM openjdk:11-jre-slim
-
-
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 EXPOSE 8761
-
-
 # docker build -t cevher/microservices-service-registry .
 # docker run -p 8761:8761 cevher/microservices-service-registry
