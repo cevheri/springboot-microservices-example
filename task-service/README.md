@@ -1,4 +1,4 @@
-# Java Microservices - Person Service
+# Java Microservices - Task Management Service
 
 
 ## Dependencies
@@ -18,13 +18,13 @@ src/main/docker/app.yml
 ```yaml
 version: '3.8'
 services:
-  person-service:
-    image: cevheri/person-service
+  task-service:
+    image: cevheri/task-service
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - APP_SLEEP=10 # for zipkin
     ports:
-      - 9002:9002
+      - 9003:9003
   zipkin:
     image: openzipkin/zipkin
     ports:
@@ -41,7 +41,7 @@ https://github.com/cevheri/microservices-config-server
 $ ./mvnw package
 $ java -jar target/*.jar
 ```
-Visit : http://localhost:8761/eureka/apps/person-service
+Visit : http://localhost:8761/eureka/apps/task-service
 
 ---
 ## Production With Docker
@@ -69,17 +69,17 @@ $ ./mvnw -Pprod clean verify jib:dockerBuild
 ```shell
 $ docker-compose -f src/main/docker/app.yml up -d
 
-Creating person-service ... done
+Creating task-service ... done
 ```
 ---
-Visit : http://localhost:8761/eureka/apps/person-service
+Visit : http://localhost:8761/eureka/apps/task-service
 ```xml
 <application>
-    <name>PERSON-SERVICE</name>
+    <name>TASK-SERVICE</name>
     <instance>
-        <instanceId>192.168.1.57:person-service:9002</instanceId>
+        <instanceId>192.168.1.57:task-service:9003</instanceId>
         <hostName>service-registry</hostName>
-        <app>PERSON-SERVICE</app>
+        <app>TASK-SERVICE</app>
         <ipAddr>192.168.1.57</ipAddr>
         <status>UP</status>
         ...
@@ -93,8 +93,8 @@ Visit : http://localhost:8761/eureka/apps/person-service
 ```shell
 $ docker images
 
-REPOSITORY                   TAG            IMAGE ID       CREATED             SIZE
-cevheri/person-service       latest         57a100df8bcd   26 minutes ago      287MB
+REPOSITORY                 TAG            IMAGE ID       CREATED             SIZE
+cevheri/task-service       latest         57a100df8bcd   26 minutes ago      287MB
 
 ```
 
@@ -102,8 +102,8 @@ cevheri/person-service       latest         57a100df8bcd   26 minutes ago      2
 ````shell
 $ docker ps
 
-CONTAINER ID   IMAGE                      COMMAND                  CREATED             STATUS          PORTS                                       NAMES
-2ca74578a26c   cevheri/person-service      "bash -c /entrypoint…"   8 seconds ago       Up 6 seconds    0.0.0.0:9002->9002/tcp, :::9002->9002/tcp   person-service
+CONTAINER ID   IMAGE                     COMMAND                  CREATED             STATUS          PORTS                                       NAMES
+2ca74578a26c   cevheri/task-service      "bash -c /entrypoint…"   8 seconds ago       Up 6 seconds    0.0.0.0:9003->9003/tcp, :::9003->9003/tcp   task-service
 
 ````
 
@@ -113,7 +113,3 @@ $ docker-compose -f src/main/docker/app.yml down
 
 ```
 
----
-### Screenshots
-
-![](files/pictures/eureka-person-service.png)
