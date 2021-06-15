@@ -84,4 +84,7 @@ fac279d0d208   cevheri/service-registry   "bash -c /entrypoint…"   18 seconds 
 $ docker-compose -f src/main/docker/app.yml down
 
 ```
+---
+### Screenshots
 
+![](files/pictures/spring-eureka-localhost.png)
