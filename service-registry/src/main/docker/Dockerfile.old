@@ -1,8 +1,14 @@
-#deprecated use app.yml
-FROM openjdk:11-jre-slim
+# syntax=docker/dockerfile:1
+
+#deprecated
+# FROM openjdk:11-jdk
+WORKDIR /app
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 EXPOSE 8761
-# docker build -t cevher/microservices-service-registry .
+
+
+# mvn compile jib:dockerBuild
+# docker build -t cevher/ms-service-registry .
 # docker run -p 8761:8761 cevher/microservices-service-registry
