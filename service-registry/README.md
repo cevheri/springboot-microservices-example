@@ -40,6 +40,7 @@ We will create Docker Image using Google Container Tools and run this Docker Ima
 ```shell
 $ ./mvnw -Pprod verify jib:dockerBuild
 
+...
 [INFO] Executing tasks:
 [INFO] [==============================] 100.0% complete
 [INFO] 
@@ -47,7 +48,7 @@ $ ./mvnw -Pprod verify jib:dockerBuild
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  17.728 s
-[INFO] Finished at: 2021-06-15T21:45:11+03:00
+[INFO] Finished at: 21:45:11+03:00
 [INFO] ------------------------------------------------------------------------
 ```
 
