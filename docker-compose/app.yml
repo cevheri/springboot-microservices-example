@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  service-registry:
+    image: cevheri/service-registry
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    ports:
+      - 8761:8761
+  config-server:
+    image: cevheri/config-server
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    ports:
+    - 9296:9296
+  hystrix-dashboard:
+      image: cevheri/hystrix-dashboard
+      environment:
+        - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      ports:
+      - 9295:9295
+  api-gateway:
+    image: cevheri/api-gateway
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    ports:
+    - 9191:9191
+  department-service:
+    image: cevheri/department-service
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    ports:
+    - 9001:9001            
+  person-service:
+    image: cevheri/person-service
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    ports:
+    - 9002:9002
+  task-service:
+    image: cevheri/task-service
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    ports:
+    - 9003:9003    
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+    - 9411:9411

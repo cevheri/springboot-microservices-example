@@ -6,7 +6,3 @@ services:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
     ports:
     - 9191:9191
-  zipkin:
-    image: openzipkin/zipkin
-    ports:
-    - 9411:9411

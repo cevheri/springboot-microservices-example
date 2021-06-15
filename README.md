@@ -35,7 +35,7 @@ Spring Boot version: 2.3.11.RELEASE
 ---
 ### Other Microservices
 - Spring Boot version: 2.5.0
-- User, Department, Task Services
+- Person, Department, Task Mangement Services
 - Dependencies:
   - spring-cloud-starter-config
   - spring-cloud-starter-netflix-eureka-client
