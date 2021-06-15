@@ -5,7 +5,6 @@ services:
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
-      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - APP_SLEEP=10
     ports:
       - 8761:8761
