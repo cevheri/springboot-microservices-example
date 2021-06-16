@@ -2,6 +2,8 @@ version: '3.8'
 services:
   hystrix-dashboard:
     image: cevheri/hystrix-dashboard
+    container_name: hystrix-dashboard
+    hostname: hystrix-dashboard
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
     ports:

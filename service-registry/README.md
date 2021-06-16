@@ -38,7 +38,7 @@ We will create Docker Image using Google Container Tools and run this Docker Ima
 
 ### Build docker image:
 ```shell
-$ ./mvnw -Pprod verify jib:dockerBuild
+$ ./mvnw -Pprod clean verify jib:dockerBuild
 
 ...
 [INFO] Executing tasks:
@@ -60,7 +60,7 @@ $ docker-compose -f src/main/docker/app.yml up -d
 
 Creating docker_service-registry_1 ... done
 ```
-Visit : http://localhost:8761/
+Visit : http://service-registry:8761/
 
 ---
 ### View docker images:

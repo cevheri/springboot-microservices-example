@@ -1,48 +1,115 @@
-version: '3.8'
+version: '3.9'
 services:
   service-registry:
     image: cevheri/service-registry
+    container_name: service-registry
+    hostname: service-registry
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
     ports:
       - 8761:8761
+    networks:
+      - ms-network
   config-server:
     image: cevheri/config-server
+    container_name: config-server
+    hostname: config-server
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka
     ports:
-    - 9296:9296
+      - 9296:9296
+    depends_on:
+      - service-registry
+    networks:
+      - ms-network
   hystrix-dashboard:
-      image: cevheri/hystrix-dashboard
-      environment:
-        - _JAVA_OPTIONS=-Xmx512m -Xms256m
-      ports:
+    image: cevheri/hystrix-dashboard
+    container_name: hystrix-dashboard
+    hostname: hystrix-dashboard
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka
+    ports:
       - 9295:9295
+    depends_on:
+      - service-registry
+      - config-server
+    networks:
+      - ms-network
   api-gateway:
     image: cevheri/api-gateway
+    container_name: api-gateway
+    hostname: api-gateway
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka
     ports:
-    - 9191:9191
+      - 9191:9191
+    depends_on:
+      - service-registry
+      - config-server
+    networks:
+      - ms-network
   department-service:
     image: cevheri/department-service
+    container_name: department-service
+    hostname: department-service
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka
     ports:
-    - 9001:9001            
+      - 9001:9001
+    depends_on:
+      - service-registry
+      - config-server
+      - zipkin
+    networks:
+      - ms-network
   person-service:
     image: cevheri/person-service
+    container_name: person-service
+    hostname: person-service
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka
     ports:
-    - 9002:9002
+      - 9002:9002
+    depends_on:
+      - service-registry
+      - config-server
+      - zipkin
+      - department-service
+    networks:
+      - ms-network
   task-service:
     image: cevheri/task-service
+    container_name: task-service
+    hostname: task-service
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka
     ports:
-    - 9003:9003    
+      - 9003:9003
+    depends_on:
+      - service-registry
+      - config-server
+      - zipkin
+      - department-service
+      - person-service
+    networks:
+      - ms-network
   zipkin:
     image: openzipkin/zipkin
+    container_name: zipkin
+    hostname: zipkin
     ports:
-    - 9411:9411
+      - 9411:9411
+    depends_on:
+      - service-registry
+      - config-server
+    networks:
+      - ms-network
+
+networks:
+  ms-network:

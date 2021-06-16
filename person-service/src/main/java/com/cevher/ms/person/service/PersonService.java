@@ -34,7 +34,6 @@ public class PersonService {
         // TODO : not for production, you should use config and common class or method.
         // TODO : We can use Message Broker for example Apache Kafka
         DepartmentVM department = restTemplate.getForObject(
-                //"http://localhost:9001/departments/" + person.getDepartmentId()
                 "http://department-service/departments/" + person.getDepartmentId()
                 , DepartmentVM.class);
 

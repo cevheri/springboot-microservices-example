@@ -2,12 +2,14 @@ version: '3.8'
 services:
   person-service:
     image: cevheri/person-service
+    container_name: person-service
+    hostname: person-service
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - APP_SLEEP=10 # for zipkin
     ports:
     - 9002:9002
-  zipkin:
-    image: openzipkin/zipkin
-    ports:
-    - 9411:9411
+#  zipkin:
+#    image: openzipkin/zipkin
+#    ports:
+#    - 9411:9411

@@ -2,12 +2,15 @@ version: '3.8'
 services:
   task-service:
     image: cevheri/task-service
+    container_name: task-service
+    hostname: task-service
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - APP_SLEEP=10 # for zipkin
     ports:
     - 9003:9003
-  zipkin:
-    image: openzipkin/zipkin
-    ports:
-    - 9411:9411
+
+#  zipkin:
+#    image: openzipkin/zipkin
+#    ports:
+#    - 9411:9411

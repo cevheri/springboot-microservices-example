@@ -56,13 +56,33 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 ---
 
 Project Links: 
-- Health : http://localhost:9191/actuator/health
-- Eureka : http://localhost:8761/
-- Department GetMethod: http://localhost:9191/departments/1
-- Hystrix: http://localhost:9295/hystrix
-- http://localhost:9295/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A9191%2Factuator%2Fhystrix.stream
+- Health : http://person-service:9191/actuator/health
+- Eureka : http://service-registry:8761/
+- Department GetMethod: http://department-service:9191/departments/1
+- Hystrix: http://hystrix-dashboard:9295/hystrix
+- http://hystrix-dashboard:9295/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A9191%2Factuator%2Fhystrix.stream
 
+## Maven and Docker Build -> jib
+```shell
 
+$ cd service-registry && ./mvnw -Pprod clean verify jib:dockerBuild && cd ..
+$ cd config-server && ./mvnw -Pprod clean verify jib:dockerBuild && cd ..
+$ cd api-gateway && ./mvnw -Pprod clean verify jib:dockerBuild && cd ..
+$ cd hystrix-dashboard && ./mvnw -Pprod clean verify jib:dockerBuild && cd ..
+$ cd department-service && ./mvnw -Pprod clean verify jib:dockerBuild && cd ..
+$ cd person-service && ./mvnw -Pprod clean verify jib:dockerBuild && cd ..
+$ cd task-service && ./mvnw -Pprod clean verify jib:dockerBuild && cd ..
+```
+
+## Run docker-compose
+```shell
+$ docker-compose -f docker-compose/app.yml up -d
+```
+
+## Stop docker-compose
+```shell
+$ docker-compose -f docker-compose/app.yml down
+```
 
 References:
 
@@ -80,4 +100,3 @@ References:
 - https://www.amazon.com/Spring-Boot-Action-Craig-Walls/dp/1617292540
 - https://www.amazon.com/Spring-Microservices-Action-John-Carnell/dp/1617293989
 - https://www.oreilly.com/library/view/mastering-spring-boot/9781787127562/
-- 

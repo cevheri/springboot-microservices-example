@@ -2,6 +2,8 @@ version: '3.8'
 services:
   config-server:
     image: cevheri/config-server
+    container_name: config-server
+    hostname: config-server
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
     ports:
