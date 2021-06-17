@@ -88,7 +88,11 @@ $ docker-compose -f docker-compose/app.yml up -d
 $ docker-compose -f docker-compose/app.yml down
 ```
 
-References:
+### Screenshots
+
+![All Microservices UP](files/pictures/microservices-allservice-on-eureka.png)
+
+### References:
 
 - https://spring.io/microservices
 - https://microservices.io/patterns/microservices.html
