@@ -6,5 +6,6 @@ services:
     hostname: config-server
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka
     ports:
     - 9296:9296
