@@ -1,15 +1,14 @@
-# Sprint Boot Microservices Example
+# Java Spring-Boot Microservices Example
 
+Light-weight sample for Microservices learning
 
-
- 
 ---
-### Services Registry
+### [Services Registry](service-registry)
 - Spring Boot version: 2.5.0
 - Dependencies:
   - spring-cloud-starter-netflix-eureka-server
 ---
-### API Gateway
+### [API Gateway](api-gateway)
 Spring Boot version: 2.3.11.RELEASE
 - Dependencies:
   - spring-cloud-starter-gateway  
@@ -18,15 +17,15 @@ Spring Boot version: 2.3.11.RELEASE
   - spring-cloud-starter-config
   - 
 ---
-### Config Server
+### [Config Server](config-server)
 - Spring Boot version: 2.5.0
-- Github repository -> application.yml 
+- GitHub repository -> application.yml 
 - Dependencies:
   - spring-cloud-config-server
   - spring-cloud-starter-netflix-eureka-client
-- Zookeper (not yet)
+- Zookeeper (not yet)
 ---
-### Hystrix Dashboard
+### [Hystrix Dashboard](hystrix-dashboard)
 - Spring Boot version: 2.3.11.RELEASE
 - Dependencies:
   - spring-cloud-starter-config
@@ -35,7 +34,7 @@ Spring Boot version: 2.3.11.RELEASE
 ---
 ### Other Microservices
 - Spring Boot version: 2.5.0
-- Person, Department, Task Mangement Services
+- [Person](person-service), [Department](department-service), [Task Management](task-service) Services
 - Dependencies:
   - spring-cloud-starter-config
   - spring-cloud-starter-netflix-eureka-client
@@ -46,10 +45,15 @@ Spring Boot version: 2.3.11.RELEASE
   - spring-boot-starter-web 
 ---
 
+### [Docker Compose](docker-compose)
+Launch all service
+```shell
+$ docker-compose -f docker-compose/app.yml up -d
+```
 
 ### Zipkin
 Docker
-The Docker Zipkin project is able to build docker images, provide scripts and a docker-compose.yml for launching pre-built images. The quickest start is to run the latest image directly:
+The Docker Zipkin project is able to build docker images, provide scripts, and a docker-compose.yml for launching pre-built images. The quickest start is to run the latest image directly:
 
 docker run -d -p 9411:9411 openzipkin/zipkin
  
@@ -84,7 +88,11 @@ $ docker-compose -f docker-compose/app.yml up -d
 $ docker-compose -f docker-compose/app.yml down
 ```
 
-References:
+### Screenshots
+
+![All Microservices UP](files/pictures/microservices-allservice-on-eureka.png)
+
+### References:
 
 - https://spring.io/microservices
 - https://microservices.io/patterns/microservices.html

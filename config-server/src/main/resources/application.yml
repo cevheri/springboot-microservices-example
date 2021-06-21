@@ -10,12 +10,14 @@ spring:
 #        git:
 #          uri: https://github.com/cevheri/microservices-config-server
 #          clone-on-start: true
+
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
-      #defaultZone: http://service-registry:8761/eureka/
+      # for local run
+      # defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://service-registry:8761/eureka/
   instance:
     hostname: service-registry

@@ -2,7 +2,7 @@ spring:
   application:
     name: department-service
   zipkin:
-    base-url: http://127.0.0.1:9411/
+    base-url: http://zipkin:9411/
 
 server:
   port: 9001
@@ -12,8 +12,8 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
-      #defaultZone: http://service-registry:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://service-registry:8761/eureka/
   instance:
     hostname: service-registry
 
