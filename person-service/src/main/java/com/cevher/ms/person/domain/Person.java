@@ -1,6 +1,7 @@
 package com.cevher.ms.person.domain;
 
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value = "PersonDomain", description = "Person Domain Model for person values")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
