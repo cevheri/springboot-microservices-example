@@ -18,8 +18,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonService {
 
-    private PersonRepository personRepository;
-    private RestTemplate restTemplate;
+    private final PersonRepository personRepository;
+    private final RestTemplate restTemplate;
 
     public Person savePerson(Person person) {
         log.info("savePerson method of PersonService");
