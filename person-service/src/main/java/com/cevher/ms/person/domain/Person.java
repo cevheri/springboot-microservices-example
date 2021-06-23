@@ -2,7 +2,7 @@ package com.cevher.ms.person.domain;
 
 
 import lombok.*;
-
+import io.swagger.annotations.ApiModel;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +16,7 @@ import javax.persistence.Id;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value = "PersonDomain", description = "Person Domain Model for person values")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
