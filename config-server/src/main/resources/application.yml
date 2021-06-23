@@ -10,6 +10,10 @@ spring:
 #        git:
 #          uri: https://github.com/cevheri/microservices-config-server
 #          clone-on-start: true
+#          searchPaths: licensingservice,organizationservice
+#      username: native-cloud-apps
+#      password: 0ffended
+
 
 eureka:
   client:

@@ -2,7 +2,7 @@ spring:
   application:
     name: person-service
   zipkin:
-    base-url: http://zipkin:9411/
+    base-url: ${ZIPKIN_URI:http://zipkin:9411/}
 
 server:
   port: 9002
@@ -13,6 +13,19 @@ eureka:
     fetch-registry: true
     service-url:
       # defaultZone: http://localhost:8761/eureka/
-      defaultZone: http://service-registry:8761/eureka/
+      defaultZone: ${EUREKA_SERVER_URI:http://service-registry:8761/eureka/}
   instance:
+    preferIpAddress: true
     hostname: service-registry
+# By default, Eureka will try to register the services that contact it by hostname. This
+#works well in a server-based environment where a service is assigned a DNS-backed
+#host name. However, in a container-based deployment (for example, Docker), con-
+#tainers will be started with randomly generated hostnames and no DNS entries for
+#the containers.
+#If you don’t set the eureka.instance.preferIpAddress to true, your client
+#applications won’t properly resolve the location of the hostnames because there will
+#be no DNS entry for that container. Setting the preferIpAddress attribute will
+#inform the Eureka service that client wants to be advertised by IP address.
+#Personally, we always set this attribute to true. Cloud-based microservices are sup-
+#posed to be ephemeral and stateless. They can be started up and shut down at will.
+#IP addresses are more appropriate for these types of services.
