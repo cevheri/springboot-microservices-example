@@ -22,8 +22,6 @@ public class AdvanceLoanDto {
     private LocalDate date;
     private Long personId;
     private Double amount;
-    private LocalDate createdAt;
-    private String createdBy;
 
 
 }

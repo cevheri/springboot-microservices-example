@@ -7,11 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 
 public interface SalaryRepository
         extends JpaRepository<Salary, Long> {
-    Page<Salary> findAllByPersonId(Long personId, Pageable pageable);
+    List<Salary> findAllByPersonId(Long personId);
     Optional<Salary> findByPersonIdAndSalaryDate(Long personId, LocalDate salaryDate);
+
+    Optional<Salary> findByPersonId(Long personId);
 }

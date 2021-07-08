@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class PersonSalaryDto {
+public class PersonSalarySpecDto {
     private Long id;
     private Long personId;
     private Double amount;

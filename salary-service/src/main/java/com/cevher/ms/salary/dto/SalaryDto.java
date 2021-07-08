@@ -25,6 +25,6 @@ public class SalaryDto {
     private Double amount;
 
     public Integer getSalaryTerm() {
-        return Integer.parseInt(salaryDate.format(DateTimeFormatter.ofPattern("yyyyMM")));
+        return salaryDate != null ? Integer.parseInt(salaryDate.format(DateTimeFormatter.ofPattern("yyyyMM"))) : null;
     }
 }

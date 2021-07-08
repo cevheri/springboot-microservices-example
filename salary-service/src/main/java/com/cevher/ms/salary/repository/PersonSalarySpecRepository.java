@@ -1,6 +1,6 @@
 package com.cevher.ms.salary.repository;
 
-import com.cevher.ms.salary.domain.PersonSalary;
+import com.cevher.ms.salary.domain.PersonSalarySpec;
 import com.cevher.ms.salary.domain.Salary;
 import com.cevher.ms.salary.dto.SalaryDto;
 import org.springframework.data.domain.Page;
@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 
-public interface PersonSalaryRepository
-        extends JpaRepository<PersonSalary, Long> {
-   }
+public interface PersonSalarySpecRepository
+        extends JpaRepository<PersonSalarySpec, Long> {
+   Optional<PersonSalarySpec> findByPersonId(Long personId);
+}
