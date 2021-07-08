@@ -1,4 +1,4 @@
-package com.cevher.ms.salaryservice;
+package com.cevher.ms.salary;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

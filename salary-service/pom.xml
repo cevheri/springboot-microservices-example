@@ -10,9 +10,9 @@
     </parent>
     <groupId>com.cevher.ms</groupId>
     <artifactId>salary-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>salary-service</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Salary Service for our Microservices project</description>
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
