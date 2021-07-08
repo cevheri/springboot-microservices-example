@@ -1,4 +1,4 @@
-package com.cevher.ms.salary.rest;
+package com.cevher.ms.salary.web.rest;
 
 import com.cevher.ms.salary.dto.SalaryDto;
 import com.cevher.ms.salary.service.SalaryService;

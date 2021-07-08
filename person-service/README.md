@@ -34,6 +34,16 @@ services:
 We will use github public repository for our configuration:
 https://github.com/cevheri/microservices-config-server
 
+## Kafka Configuration
+
+---
+### Create Kafka Topic
+```shell
+kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 5 --topic salary
+```
+---
+
+
 
 ---
 ## Development
