@@ -1,5 +1,6 @@
 package com.cevher.ms.salary.rest;
 
+import com.cevher.ms.salary.domain.AdvanceLoan;
 import com.cevher.ms.salary.dto.SalaryDto;
 import com.cevher.ms.salary.service.SalaryService;
 import lombok.RequiredArgsConstructor;
