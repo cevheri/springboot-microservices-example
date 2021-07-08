@@ -26,23 +26,26 @@ import java.util.List;
 @Slf4j
 public class DepartmentDiscoveryClient {
 
-    private final DiscoveryClient discoveryClient;
+    //    private final DiscoveryClient discoveryClient;
+    private final RestTemplate restTemplate;
 
     public DepartmentVM getDepartment(String departmentId) {
-        RestTemplate restTemplate = new RestTemplate();
-        List<ServiceInstance> instances = discoveryClient.getInstances("department-service");
+//        RestTemplate restTemplate = new RestTemplate();
+//        List<ServiceInstance> instances = discoveryClient.getInstances("department-service");
+//
+//        if (instances.size() == 0) return null;
+//        String serviceUri = String.format("%s/v1/departments/%s", instances.get(0).getUri().toString(), departmentId);
+//        log.info("!!!! SERVICE URI:  " + serviceUri);
 
-        if (instances.size() == 0) return null;
-        String serviceUri = String.format("%s/v1/departments/%s", instances.get(0).getUri().toString(), departmentId);
-        log.info("!!!! SERVICE URI:  " + serviceUri);
-
-        val restExchange = restTemplate.exchange(
+        //for Load Balancing
+        val serviceUri = "http://department-service/v1/departments/{department-id}";
+        return restTemplate.exchange(
                 serviceUri,
                 HttpMethod.GET,
                 null,
                 DepartmentVM.class,
-                departmentId);
+                departmentId)
+                .getBody();
 
-        return restExchange.getBody();
     }
 }

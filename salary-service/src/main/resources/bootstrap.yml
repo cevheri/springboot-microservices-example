@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+      uri: ${SPRING_CONFIG_URI:http://config-server:9296}
