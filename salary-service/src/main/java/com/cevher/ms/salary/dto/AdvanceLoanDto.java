@@ -19,9 +19,7 @@ import java.time.format.DateTimeFormatter;
 @EqualsAndHashCode
 public class AdvanceLoanDto {
     private Long id;
-    private LocalDate date;
+    private LocalDate demandDate;
     private Long personId;
     private Double amount;
-
-
 }

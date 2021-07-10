@@ -1,0 +1,11 @@
+
+{
+    "toService":"salary-service",
+    "fromService":"person-service",
+    "uuid":"d1ce8c12-a506-44a4-a227-96eaea201f85",
+    "fromOperation":"sendFirstSalary",
+    "toOperation":null,
+    "personId":1,
+    "amount":1000.0,
+    "salaryDate":"2021-07-10"
+}

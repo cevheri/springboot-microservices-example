@@ -3,24 +3,29 @@ spring:
     name: person-service
   zipkin:
     base-url: ${ZIPKIN_URI:http://zipkin:9411/}
+    enabled: false
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
-      group-id: salary_group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 server:
   port: 9002
 
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       # defaultZone: http://localhost:8761/eureka/
       defaultZone: ${EUREKA_SERVER_URI:http://service-registry:8761/eureka/}

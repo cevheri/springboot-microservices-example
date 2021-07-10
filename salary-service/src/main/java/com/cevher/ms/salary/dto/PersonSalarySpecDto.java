@@ -21,5 +21,4 @@ public class PersonSalarySpecDto {
     private Long id;
     private Long personId;
     private Double amount;
-
 }

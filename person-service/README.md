@@ -39,7 +39,8 @@ https://github.com/cevheri/microservices-config-server
 ---
 ### Create Kafka Topic
 ```shell
-kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 5 --topic salary
+kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic person_to_salary
+kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic salary_to_person
 ```
 ---
 

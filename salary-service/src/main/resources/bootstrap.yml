@@ -1,5 +1,5 @@
 spring:
   cloud:
     config:
-      enabled: true
+      enabled: false
       uri: ${SPRING_CONFIG_URI:http://config-server:9296}

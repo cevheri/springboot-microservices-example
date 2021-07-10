@@ -20,7 +20,7 @@ public class AdvanceLoan implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate date;
+    private LocalDate demandDate;
     private Long personId;
     private Double amount;
     private LocalDate createdAt;
