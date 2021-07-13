@@ -1,6 +1,7 @@
 package com.cevher.ms.salary.service;
 
 
+import com.cevher.ms.SalaryMessage;
 import com.cevher.ms.salary.domain.AdvanceLoan;
 import com.cevher.ms.salary.domain.PersonSalarySpec;
 import com.cevher.ms.salary.domain.Salary;
@@ -11,6 +12,9 @@ import com.cevher.ms.salary.exception.AlreadySalaryException;
 import com.cevher.ms.salary.repository.AdvanceLoanRepository;
 import com.cevher.ms.salary.repository.PersonSalarySpecRepository;
 import com.cevher.ms.salary.repository.SalaryRepository;
+import com.cevher.ms.salary.service.kafka.producer.PersonSalaryProducer;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,10 +29,11 @@ import java.util.stream.Collectors;
 @Slf4j
 public class SalaryService {
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
     private final SalaryRepository salaryRepository;
     private final PersonSalarySpecRepository personSalarySpecRepository;
     private final AdvanceLoanRepository advanceLoanRepository;
-    //private final PersonSalaryProducer salaryProducer;
+    private final PersonSalaryProducer salaryProducer;
 
     public List<SalaryDto> findAllByPersonId(Long personId) throws Exception {
 
@@ -81,7 +86,7 @@ public class SalaryService {
         savePersonSalarySpec(dto);
     }
 
-    public SalaryDto computeSalary(Long personId, LocalDate salaryDate) throws Exception {
+    public SalaryDto computeSalary(Long personId, String salaryDate) throws Exception {
 
         PersonSalarySpec personSalarySpec = personSalarySpecRepository
                 .findByPersonId(personId)
@@ -136,7 +141,14 @@ public class SalaryService {
                 .build();
     }
 
-//    public void sendMessageToPerson(SalaryMessage salaryMessage) {
-//        salaryProducer.produce(salaryMessage);
-//    }
+    public void sendMessageToPerson(SalaryMessage salaryMessage) {
+        String message = null;
+        try {
+            message = objectMapper.writeValueAsString(salaryMessage);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        salaryProducer.produce(message);
+    }
+
 }

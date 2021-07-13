@@ -50,7 +50,7 @@ public class SalaryResource {
     public ResponseEntity<SalaryDto> computePersonSalary(@PathVariable("personId") Long personId,
                                                          @PathVariable
                                                          @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-                                                                 LocalDate salaryDate)
+                                                                 String salaryDate)
             throws Exception {
         SalaryDto salaryDto = salaryService.computeSalary(personId, salaryDate);
         return ResponseEntity.ok().body(salaryDto);

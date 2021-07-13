@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "salary", catalog = "public")
+@Table(name = "salary")
 public class Salary implements Serializable {
 
     @Id
@@ -24,6 +24,6 @@ public class Salary implements Serializable {
     private LocalDate salaryDate;
     private Long personId;
     private Double amount;
-    private LocalDate createdAt;
+    private String createdAt;
     private String createdBy;
 }

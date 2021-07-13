@@ -1,4 +1,4 @@
-package com.cevher.ms.salary.config;
+package com.cevher.ms.salary.config.kafka;
 
 import com.cevher.ms.SalaryMessage;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -16,8 +16,9 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-@EnableKafka
-@Configuration
+//@EnableKafka
+//@Configuration
+@Deprecated
 public class KafkaConsumerConfiguration {
 
 
@@ -74,20 +75,20 @@ public class KafkaConsumerConfiguration {
 //        return factory;
 //    }
 
-    public ConsumerFactory<String, SalaryMessage> salaryConsumerFactory() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "person-to-salary-groupx");
-        props.put(JsonDeserializer.TRUSTED_PACKAGES,"*");
-        props.put(JsonDeserializer.REMOVE_TYPE_INFO_HEADERS,"false");
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(SalaryMessage.class));
-    }
-
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, SalaryMessage> salaryKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, SalaryMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(salaryConsumerFactory());
-        return factory;
-    }
+//    public ConsumerFactory<String, SalaryMessage> salaryConsumerFactory() {
+//        Map<String, Object> props = new HashMap<>();
+//        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+//        props.put(ConsumerConfig.GROUP_ID_CONFIG, "person-to-salary-groupx");
+//        props.put(JsonDeserializer.TRUSTED_PACKAGES,"*");
+//        props.put(JsonDeserializer.REMOVE_TYPE_INFO_HEADERS,"false");
+//        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(SalaryMessage.class));
+//    }
+//
+//    @Bean
+//    public ConcurrentKafkaListenerContainerFactory<String, SalaryMessage> salaryKafkaListenerContainerFactory() {
+//        ConcurrentKafkaListenerContainerFactory<String, SalaryMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
+//        factory.setConsumerFactory(salaryConsumerFactory());
+//        return factory;
+//    }
 
 }

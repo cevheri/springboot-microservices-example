@@ -1,4 +1,4 @@
-package com.cevher.ms.salary.config;
+package com.cevher.ms.salary.config.kafka;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
 
 //@Configuration
+@Deprecated
 public class KafkaTopicConfiguration {
     @Value(value = "${spring.kafka.consumer.bootstrap-servers}")
     private String bootstrapAddress;
