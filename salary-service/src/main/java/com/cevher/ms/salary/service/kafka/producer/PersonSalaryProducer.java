@@ -1,4 +1,4 @@
-package com.cevher.ms.salary.service.kafka;
+package com.cevher.ms.salary.service.kafka.producer;
 
 import com.cevher.ms.SalaryMessage;
 import lombok.*;
