@@ -31,6 +31,8 @@ public class SalaryMessageConsumer {
     )
     public void consume(String message) {
         log.info("Consumer Group : " + message.toString());
+
+        //TODO we should use json checker
         SalaryMessage salaryMessage = null;
         try {
             salaryMessage = objectMapper.readValue(message, SalaryMessage.class);

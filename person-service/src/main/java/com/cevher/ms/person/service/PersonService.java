@@ -40,6 +40,8 @@ public class PersonService {
                 .personId(person.getId())
                 .salaryDate(LocalDate.now().toString())
                 .amount(PERSON_DEFAULT_SALARY)
+                .code("0000")
+                .message("SUCCESS")
                 .build();
 
         //salaryProducer.produce(salaryMessage.toString());
