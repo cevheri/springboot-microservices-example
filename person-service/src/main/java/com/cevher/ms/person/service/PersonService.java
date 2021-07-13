@@ -6,6 +6,8 @@ import com.cevher.ms.SalaryMessage;
 import com.cevher.ms.person.service.kafka.PersonSalaryProducer;
 import com.cevher.ms.person.vm.DepartmentVM;
 import com.cevher.ms.person.vm.ResponseTempVM;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -14,12 +16,14 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class PersonService {
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
     private final PersonRepository personRepository;
     private final RestTemplate restTemplate;
     private final PersonSalaryProducer salaryProducer;
@@ -31,16 +35,23 @@ public class PersonService {
 
         SalaryMessage salaryMessage = SalaryMessage
                 .builder()
+                .uuid(UUID.randomUUID().toString())
+                .fromOperation("sendFirstSalary")
                 .personId(person.getId())
                 .salaryDate(LocalDate.now().toString())
                 .amount(PERSON_DEFAULT_SALARY)
-                .fromOperation("sendFirstSalary")
                 .build();
 
         //salaryProducer.produce(salaryMessage.toString());
-        salaryProducer.produce(salaryMessage);
+        String message = null;
+        try {
+            message = objectMapper.writeValueAsString(salaryMessage);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        salaryProducer.produce(message);
 
-        log.info("Send Kafka Message: " + salaryMessage);
+        log.info("Sended sendFirstSalary Message: " + salaryMessage.getUuid());
     }
 
     public Person savePerson(Person person) {

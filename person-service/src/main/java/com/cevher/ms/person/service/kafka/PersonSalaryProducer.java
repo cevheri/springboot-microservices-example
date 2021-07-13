@@ -9,17 +9,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class PersonSalaryProducer {
-    private static final String KAFKA_TOPIC = "person-to-salary-1";
+    private static final String KAFKA_TOPIC = "person-to-salary-2";
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
-    //private final KafkaTemplate<String, String> kafkaTemplate;
-
-    private final KafkaTemplate<String, com.cevher.ms.SalaryMessage> kafkaTemplateSalary;
-
-//    public void produce(String message) {
-//        kafkaTemplate.send(KAFKA_TOPIC, message);
-//    }
-
-    public void produce(com.cevher.ms.SalaryMessage message) {
-        kafkaTemplateSalary.send(KAFKA_TOPIC, message);
+    public void produce(String message) {
+        log.info("Person Kafka Produce: "+message);
+        kafkaTemplate.send(KAFKA_TOPIC, message);
     }
+
+
 }
