@@ -15,7 +15,6 @@
 * Spring Actuator
 * Spring Dev Tools
 
-
 ## Kafka Configuration
 
 ### Running Kafka
@@ -33,7 +32,10 @@ docker exec -it docker_kafka_1 bash
 ### Kafka Topic Create
 
 ```shell
-kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 5 --topic jkfk-1-topic
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic salary-to-person-2
+```
+```shell
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic person-to-salary-2
 ```
 
 ### Kafka Topic Describe
@@ -45,7 +47,7 @@ kafka-topics --describe --topic jkfk-1-topic --bootstrap-server localhost:9092
 ### Kafka Console Consumer
 
 ```shell
-kafka-console-consumer --topic jkfk-1-topic --from-beginning --bootstrap-server localhost:9092
+kafka-console-consumer --topic person-to-salary-2 --from-beginning --bootstrap-server localhost:9092
 ```
 
 ### Listing Topics
@@ -56,23 +58,15 @@ or
 kafka-topics --bootstrap-server=localhost:9092 --list
 ```
 
+
 ```text
 run java app-> $ ./mvnw
 ```
 
 ## Pub-Sub Kafka
+I used postman
 
-### Publish Kafka by Java API
-
-Authorization is your token
-
-```shell
-curl -X 'POST' \
-  'http://localhost:8080/api/jkfk-kafka/publish/jkfk-1-topic?message=test-message&key=test-message' \
-  -H 'accept: */*' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTYyNjI1NzYyOX0.S77IXWzmQ3nols5ysZvyAzm-vtehdQYpZqPMRYw4JhLlI-6NYcDMi8xdI4k1weaPN0LXKb_1gxsYhqMWOC6I7Q' \
-  -d ''
-```
+---
 
 
 ## Configuration

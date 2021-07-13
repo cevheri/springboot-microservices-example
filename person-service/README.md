@@ -13,6 +13,58 @@
 * Lombok
 * Zipkin
 
+
+## Kafka Configuration
+
+### Running Kafka
+
+```shell
+docker-compose -f src/main/docker/kafka.yml up -d
+```
+
+#### Then run kafka exec by docker image
+
+```shell
+docker exec -it docker_kafka_1 bash
+```
+
+### Kafka Topic Create
+
+```shell
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic salary-to-person-2
+```
+```shell
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic person-to-salary-2
+```
+
+### Kafka Topic Describe
+
+```shell
+kafka-topics --describe --topic jkfk-1-topic --bootstrap-server localhost:9092
+```
+
+### Kafka Console Consumer
+
+```shell
+kafka-console-consumer --topic person-to-salary-2 --from-beginning --bootstrap-server localhost:9092
+```
+
+### Listing Topics
+
+```shell
+kafka-topics --list --zookeeper zookeeper:2181
+or
+kafka-topics --bootstrap-server=localhost:9092 --list
+```
+
+```text
+run java app-> $ ./mvnw
+```
+
+## Pub-Sub Kafka
+I used postman
+
+
 ## Configuration 
 src/main/docker/app.yml
 ```yaml
@@ -33,18 +85,6 @@ services:
 
 We will use github public repository for our configuration:
 https://github.com/cevheri/microservices-config-server
-
-## Kafka Configuration
-
----
-### Create Kafka Topic
-```shell
-kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic person_to_salary
-kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic salary_to_person
-```
----
-
-
 
 ---
 ## Development
