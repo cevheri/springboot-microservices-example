@@ -42,3 +42,4 @@ salary:
     partitioned-topic-name:
     person-to-salary-topic-name: salary_to_person
     salary-to-person-topic-name: person_to_salary
+    avro-person-topic-name: person-to-salary-avro

@@ -1,0 +1,93 @@
+{
+  "namespace": "com.cevher.ms.salary.avro.model",
+  "type": "record",
+  "name": "AvroHttpRequest",
+  "doc": "Kafka Avro Message Format",
+  "fields": [
+    {
+      "name": "uuid",
+      "type": "string",
+      "doc": "A universally unique identifier (UUID)"
+    }
+//    ,{
+//      "name": "request",
+//      "type": {
+//        "type": "record",
+//        "name": "Request",
+//        "field": [
+//          {
+//            "name": "type",
+//            "type": {
+//              "type": "enum",
+//              "name": "Type",
+//              "symbols": [
+//                "SYNC",
+//                "ASYNC"
+//              ]
+//            },
+//            "default": "ASYNC"
+//          },
+//          {
+//            "name": "fromService",
+//            "type": "string",
+//            "doc": "Request Service Name"
+//          },
+//          {
+//            "name": "fromOperation",
+//            "type": "string",
+//            "doc": "Request Service Method Name"
+//          },
+//          {
+//            "name": "toService",
+//            "type": "string",
+//            "doc": "Consumer Service Name"
+//          },
+//          {
+//            "name": "toOperation",
+//            "type": "string",
+//            "doc": "Consumer Service Method Name. If we are using result service"
+//          },
+//          {
+//            "name": "time",
+//            "type": "long",
+//            "doc": "Request Time"
+//          },
+//          {
+//            "name": "code",
+//            "type": "string",
+//            "doc": "Request Code"
+//          },
+//          {
+//            "name": "message",
+//            "type": "string",
+//            "doc": "Request Message"
+//          },
+//        ]
+//      }
+//    },
+//    {
+//      "name": "salaryInfo",
+//      "type": {
+//        "type": "record",
+//        "name": "SalaryInfo",
+//        "fields": [
+//          {
+//            "name": "personId",
+//            "type": "long",
+//            "doc": "Personnel ID"
+//          },
+//          {
+//            "name": "amount",
+//            "type": "long",
+//            "doc": "Personnel Amount info"
+//          },
+//          {
+//            "name": "salaryDate",
+//            "type": "long",
+//            "doc": "Personnel Salary Date"
+//          }
+//        ]
+//      }
+//    }
+  ]
+}

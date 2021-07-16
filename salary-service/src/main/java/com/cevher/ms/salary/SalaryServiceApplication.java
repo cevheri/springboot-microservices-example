@@ -1,7 +1,9 @@
 package com.cevher.ms.salary;
 
 import com.google.common.collect.Maps;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -20,4 +22,6 @@ public class SalaryServiceApplication {
     }
 
 
+    @Bean NewTopic newJsonSalaryTopic() { return new NewTopic("person-to-salary",1, (short) 1); }
+    @Bean NewTopic newJsonPersonTopic() { return new NewTopic("salary-to-person",1, (short) 1); }
 }
